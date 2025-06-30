@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Nevada.urls'
@@ -142,16 +143,20 @@ EMAIL_HOST_PASSWORD = "egov blsu qikc sque"
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'NSD', 'staticfiles')
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "NSD", "static"),]  # Ensure Django finds static files]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'NSD', 'staticfiles')
 
 
 # Default primary key field type
