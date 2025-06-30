@@ -1,0 +1,1 @@
+web: gunicorn Nevada.wsgi --log-file -
