@@ -379,6 +379,8 @@ def REGISTRATION(requests):
 
     country_codes = sorted(country_codes, key=lambda x: x["name"].lower())
 
+    print(country_code)
+
     if requests.method == "POST":
         surname = requests.POST.get('surname').strip()
         firstname = requests.POST.get('firstname').strip()
